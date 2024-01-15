@@ -1,0 +1,13 @@
+[[withdrawal]]
+=== 계좌 출금 API
+
+==== HTTP Request
+
+include::{snippets}/withdrawal/http-request.adoc[]
+include::{snippets}/withdrawal/request-fields.adoc[]
+
+
+==== HTTP Response
+
+include::{snippets}/withdrawal/http-response.adoc[]
+include::{snippets}/withdrawal/response-fields.adoc[]

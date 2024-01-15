@@ -1,0 +1,13 @@
+[[deposit]]
+=== 계좌 입금 API
+
+==== HTTP Request
+
+include::{snippets}/deposit/http-request.adoc[]
+include::{snippets}/deposit/request-fields.adoc[]
+
+
+==== HTTP Response
+
+include::{snippets}/deposit/http-response.adoc[]
+include::{snippets}/deposit/response-fields.adoc[]
