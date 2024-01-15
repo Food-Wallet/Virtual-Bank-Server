@@ -17,3 +17,4 @@ include::overview.adoc[]
 
 include::api/trade/trade.adoc[]
 include::api/trade/deposit.adoc[]
+include::api/trade/withdrawal.adoc[]
