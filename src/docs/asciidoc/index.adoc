@@ -1,7 +1,7 @@
 ifndef::snippets[]
 :snippets: ../../build/generated-snippets
 endif::[]
-= Travel Sketch REST API 문서
+= Virtual Bank REST API 문서
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
@@ -16,3 +16,4 @@ include::overview.adoc[]
 == Trade API
 
 include::api/trade/trade.adoc[]
+include::api/trade/deposit.adoc[]
