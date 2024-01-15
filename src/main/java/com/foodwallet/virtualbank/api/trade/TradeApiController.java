@@ -50,6 +50,13 @@ public class TradeApiController {
 
     @PostMapping("/withdrawal")
     public ApiResponse<WithdrawalResponse> withdrawal(@RequestBody WithdrawalRequest request) {
-        return null;
+        WithdrawalResponse response = WithdrawalResponse.builder()
+            .bankCode("088")
+            .accountNumber("110111222222")
+            .amount(10000)
+            .content("출금")
+            .withdrawalDateTime(LocalDateTime.of(2024, 1, 15, 9, 0))
+            .build();
+        return ApiResponse.ok(response);
     }
 }
