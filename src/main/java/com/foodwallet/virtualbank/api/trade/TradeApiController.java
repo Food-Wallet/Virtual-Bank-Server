@@ -41,9 +41,8 @@ public class TradeApiController {
             .bankCode("088")
             .accountNumber("110111222222")
             .amount(10000)
-            .pwd("1234")
             .content("입금")
-            .tradeDateTime(LocalDateTime.of(2024, 1, 15, 9, 0))
+            .depositDateTime(LocalDateTime.of(2024, 1, 15, 9, 0))
             .build();
         return ApiResponse.ok(response);
     }
