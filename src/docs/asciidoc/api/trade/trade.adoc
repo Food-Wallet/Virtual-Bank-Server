@@ -1,0 +1,13 @@
+[[trade]]
+=== 계좌 송금 API
+
+==== HTTP Request
+
+include::{snippets}/transfer/http-request.adoc[]
+include::{snippets}/transfer/request-fields.adoc[]
+
+
+==== HTTP Response
+
+include::{snippets}/transfer/http-response.adoc[]
+include::{snippets}/transfer/response-fields.adoc[]
