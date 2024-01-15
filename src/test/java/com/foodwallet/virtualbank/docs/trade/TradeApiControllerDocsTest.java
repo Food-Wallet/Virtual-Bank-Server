@@ -1,6 +1,7 @@
 package com.foodwallet.virtualbank.docs.trade;
 
 import com.foodwallet.virtualbank.api.trade.TradeApiController;
+import com.foodwallet.virtualbank.api.trade.dto.request.DepositRequest;
 import com.foodwallet.virtualbank.api.trade.dto.request.TransferRequest;
 import com.foodwallet.virtualbank.docs.RestDocsSupport;
 import org.junit.jupiter.api.DisplayName;
@@ -82,6 +83,65 @@ public class TradeApiControllerDocsTest extends RestDocsSupport {
                         .description("받는 계좌 번호"),
                     fieldWithPath("data.amount").type(JsonFieldType.NUMBER)
                         .description("금액"),
+                    fieldWithPath("data.content").type(JsonFieldType.STRING)
+                        .description("이체 내용"),
+                    fieldWithPath("data.tradeDateTime").type(JsonFieldType.ARRAY)
+                        .description("이체 시간")
+                )
+            ));
+    }
+
+    @DisplayName("계좌 입금하는 API")
+    @Test
+    void deposit() throws Exception {
+        DepositRequest request = DepositRequest.builder()
+            .bankCode("088")
+            .accountNumber("110111222222")
+            .amount(10000)
+            .pwd("1234")
+            .content("입금")
+            .build();
+
+        mockMvc.perform(
+                post(BASE_URL + "/deposit")
+                    .content(objectMapper.writeValueAsString(request))
+                    .contentType(MediaType.APPLICATION_JSON)
+            )
+            .andDo(print())
+            .andExpect(status().isOk())
+            .andDo(document("deposit",
+                preprocessRequest(prettyPrint()),
+                preprocessResponse(prettyPrint()),
+                requestFields(
+                    fieldWithPath("bankCode").type(JsonFieldType.STRING)
+                        .description("입금할 은행 코드"),
+                    fieldWithPath("accountNumber").type(JsonFieldType.STRING)
+                        .description("입금할 계좌 번호"),
+                    fieldWithPath("amount").type(JsonFieldType.NUMBER)
+                        .description("금액"),
+                    fieldWithPath("pwd").type(JsonFieldType.STRING)
+                        .description("계좌 비밀번호"),
+                    fieldWithPath("content").type(JsonFieldType.STRING)
+                        .optional()
+                        .description("이체 내용")
+                ),
+                responseFields(
+                    fieldWithPath("code").type(JsonFieldType.NUMBER)
+                        .description("코드"),
+                    fieldWithPath("status").type(JsonFieldType.STRING)
+                        .description("상태"),
+                    fieldWithPath("message").type(JsonFieldType.STRING)
+                        .description("메시지"),
+                    fieldWithPath("data").type(JsonFieldType.OBJECT)
+                        .description("응답 데이터"),
+                    fieldWithPath("data.bankCode").type(JsonFieldType.STRING)
+                        .description("입금할 은행 코드"),
+                    fieldWithPath("data.accountNumber").type(JsonFieldType.STRING)
+                        .description("입금할 계좌 번호"),
+                    fieldWithPath("data.amount").type(JsonFieldType.NUMBER)
+                        .description("금액"),
+                    fieldWithPath("data.pwd").type(JsonFieldType.STRING)
+                        .description("계좌 비밀번호"),
                     fieldWithPath("data.content").type(JsonFieldType.STRING)
                         .description("이체 내용"),
                     fieldWithPath("data.tradeDateTime").type(JsonFieldType.ARRAY)
