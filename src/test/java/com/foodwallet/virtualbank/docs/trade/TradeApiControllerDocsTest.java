@@ -99,7 +99,6 @@ public class TradeApiControllerDocsTest extends RestDocsSupport {
             .bankCode("088")
             .accountNumber("110111222222")
             .amount(10000)
-            .pwd("1234")
             .content("입금")
             .build();
 
@@ -120,8 +119,6 @@ public class TradeApiControllerDocsTest extends RestDocsSupport {
                         .description("입금할 계좌 번호"),
                     fieldWithPath("amount").type(JsonFieldType.NUMBER)
                         .description("금액"),
-                    fieldWithPath("pwd").type(JsonFieldType.STRING)
-                        .description("계좌 비밀번호"),
                     fieldWithPath("content").type(JsonFieldType.STRING)
                         .optional()
                         .description("이체 내용")
@@ -141,12 +138,10 @@ public class TradeApiControllerDocsTest extends RestDocsSupport {
                         .description("입금할 계좌 번호"),
                     fieldWithPath("data.amount").type(JsonFieldType.NUMBER)
                         .description("금액"),
-                    fieldWithPath("data.pwd").type(JsonFieldType.STRING)
-                        .description("계좌 비밀번호"),
                     fieldWithPath("data.content").type(JsonFieldType.STRING)
                         .description("이체 내용"),
-                    fieldWithPath("data.tradeDateTime").type(JsonFieldType.ARRAY)
-                        .description("이체 시간")
+                    fieldWithPath("data.depositDateTime").type(JsonFieldType.ARRAY)
+                        .description("입금 시간")
                 )
             ));
     }
